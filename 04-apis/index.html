@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>YouTube</title>
   <link rel="stylesheet" href="./main.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet"> 
-  <script src="./get_data.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
 </head>
+
 <body>
   <div id="container">
     <form>
-      <input type="text" />
+      <input type="text" id="inputText" />
     </form>
-    <div id="results">
-      <p>Faça sua busca...</p>
+    <div id="resultVideo">
+      <p id="doYourSearch">Faça sua busca...</p>
     </div>
   </div>
+  <script src="./get_data.js"></script>
+  <script src="./credentials.js"></script>
   <script src="./main.js"></script>
 </body>
+
 </html>
