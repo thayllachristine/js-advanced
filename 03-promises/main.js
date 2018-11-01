@@ -15,6 +15,7 @@ cep_input.addEventListener("focus", function () {
 cep_input.addEventListener("blur", function () {
     const cep = this.value.replace(/\D/g, "")
 
+    //Carregamento das informações durante a requisição
     logradouro_input.value = "..."
     complemento_input.value = "..."
     bairro_input.value = "..."
@@ -22,9 +23,10 @@ cep_input.addEventListener("blur", function () {
     uf_input.value = "..."
 
     get_data(`https://viacep.com.br/ws/${cep}/json/`)
-        .then(function(data) {
+        .then(function (data) {
             data = JSON.parse(data)
             if (data.erro) {
+                //Retorna um erro
                 cep_input.classList.add("error")
                 cep_error.style.display = "block"
 
@@ -34,6 +36,7 @@ cep_input.addEventListener("blur", function () {
                 localidade_input.value = ""
                 uf_input.value = ""
             } else {
+                //Retorna um valor
                 logradouro_input.value = data.logradouro
                 complemento_input.value = data.complemento
                 bairro_input.value = data.bairro
@@ -41,7 +44,9 @@ cep_input.addEventListener("blur", function () {
                 uf_input.value = data.uf
             }
         })
-        .catch(function(error) {
+
+        //Caso não retorne nada, é apresentado um erro
+        .catch(function (error) {
             cep_input.classList.add("error")
             cep_error.style.display = "block"
 
